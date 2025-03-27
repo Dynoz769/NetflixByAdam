@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Netflix Clone</title>
+    <title>NetflixByAdam</title>
     <script>
         tailwind.config = {
             theme: {
@@ -38,6 +38,79 @@
 </head>
 <body>
     <!-- User Selection Screen -->
+    <style>
+        /* Animasi Fade-in */
+#user-selection {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animasi Hover untuk Butang */
+button {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 50%);
+    transition: all 0.5s ease-out;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    color: white;
+    border-color: white;
+}
+
+/* Efek Glow untuk Tajuk */
+h1 {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6);
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+h1:hover {
+    text-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 0, 0, 0.8);
+}
+
+/* Efek Glassmorphism untuk Kad Profil */
+.profile-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.profile-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+    </style>
     <div id="user-selection" class="min-h-screen flex flex-col items-center justify-center bg-black">
         <h1 class="text-5xl font-bold text-red-600 mb-16">NETFLIX</h1>
         <h2 class="text-3xl mb-12">Who's watching?</h2>
